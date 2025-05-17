@@ -8,3 +8,13 @@ function onSignIn(response) {
     alert('Access denied');
   }
 }
+function saveToken() {
+  const token = document.getElementById('github-token').value.trim();
+  if (token) {
+    localStorage.setItem('githubToken', token);
+    alert("Token saved.");
+  }
+}
+function getToken() {
+  return localStorage.getItem('githubToken');
+}
