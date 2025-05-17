@@ -37,7 +37,7 @@
     <label>Site Title: <input id="site-title-input"></label><br>
     <label>Hero Title: <input id="hero-title-input"></label><br>
     <label>Hero Description: <textarea id="hero-desc-input"></textarea></label><br>
-    <button onclick="saveContent()">Save</button>
+    <button id="save-button" onclick="saveContent()">Save</button>
   </div>
   <script src="assets/cms.js"></script>
  
@@ -52,7 +52,14 @@
     function getToken() {
       return localStorage.getItem('githubToken');
     }
+    document.getElementById("save-button").onclick = () => {
+      const updatedJson = getUpdatedFormData(); // or however you collect your data
+      saveContentToGitHub("content/home.json", updatedJson);
+    }; 
 </script>
+
+
+
   
 </body>
 </html>
