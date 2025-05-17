@@ -17,7 +17,7 @@
     <input type="password" id="github-token" placeholder="Paste your GitHub token">
   </label>
   <button onclick="saveToken()">Save Token</button>
-</div>
+  </div>
 
   <div id="g_id_onload"
        data-client_id="277666859480-fi0eml8iv5io9v76dfigsg4gbg2klcph.apps.googleusercontent.com"
@@ -40,6 +40,19 @@
     <button onclick="saveContent()">Save</button>
   </div>
   <script src="assets/cms.js"></script>
+ 
+  <script>
+    function saveToken() {
+      const token = document.getElementById('github-token').value.trim();
+      if (token) {
+        localStorage.setItem('githubToken', token);
+        alert("Token saved.");
+      }
+    }
+    function getToken() {
+      return localStorage.getItem('githubToken');
+    }
+</script>
   
 </body>
 </html>
