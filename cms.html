@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <div id="github-auth">
+  <label>GitHub Token:
+    <input type="password" id="github-token" placeholder="Paste your GitHub token">
+  </label>
+  <button onclick="saveToken()">Save Token</button>
+</div>
+
   <div id="g_id_onload"
        data-client_id="277666859480-fi0eml8iv5io9v76dfigsg4gbg2klcph.apps.googleusercontent.com"
        data-callback="onSignIn"
@@ -33,5 +40,6 @@
     <button onclick="saveContent()">Save</button>
   </div>
   <script src="assets/cms.js"></script>
+  
 </body>
 </html>
