@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="site-title">Loading...</h1>
+  </header>
+  <main>
+    <section class="hero">
+      <h2 id="hero-title">Loading...</h2>
+      <p id="hero-desc"></p>
+    </section>
+  </main>
+  <script>
+    fetch('content/home.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('site-title').textContent = data.siteTitle || '';
+        document.getElementById('hero-title').textContent = data.hero?.title || '';
+        document.getElementById('hero-desc').textContent = data.hero?.description || '';
+      })
+      .catch(err => {
+        document.getElementById('site-title').textContent = "Failed to load content.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

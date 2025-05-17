@@ -1,0 +1,9 @@
+{
+  "name": "Church Website",
+  "short_name": "Church",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#333333",
+  "icons": []
+}
