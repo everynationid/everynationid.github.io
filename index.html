@@ -3,80 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Every Nation Indonesia</title>
-  <meta name="description" content="Every Nation Indonesia - Transforming lives through Christ">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="images/icon-192x192.png">
-  <meta name="theme-color" content="#ffffff">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Every Nation Indonesia</title>
 </head>
 <body>
-  <header id="header">
-    <!-- Header content will be loaded from content.json -->
+  <header>
+    <h1>Every Nation Indonesia</h1>
   </header>
-
   <main>
     <section id="hero">
-      <!-- Hero content will be loaded from content.json -->
+      <h2 id="hero-title">Welcome to Every Nation Indonesia</h2>
+      <p id="hero-description">Your home church in Indonesia.</p>
     </section>
-
-    <section id="about" class="section">
-      <!-- About content will be loaded from content.json -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p id="about-text">We are a church community focused on discipleship...</p>
     </section>
-
-    <section id="services" class="section">
-      <!-- Services content will be loaded from content.json -->
+    <section id="ministries">
+      <h2>Our Ministries</h2>
+      <ul id="ministries-list">
+        <li>Ministry 1</li>
+        <li>Ministry 2</li>
+      </ul>
     </section>
-
-    <section id="events" class="section">
-      <!-- Events content will be loaded from content.json -->
-    </section>
-
-    <section id="connect" class="section">
-      <!-- Connect content will be loaded from content.json -->
-    </section>
-
-    <section id="giving" class="section">
-      <!-- Giving content will be loaded from content.json -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: contact@everynation.id</p>
     </section>
   </main>
-
-  <footer id="footer">
-    <!-- Footer content will be loaded from content.json -->
+  <footer>
+    <p>&copy; 2025 Every Nation Indonesia</p>
   </footer>
-
-  <!-- Admin Panel Login Button (visible only to admins) -->
-  <div id="admin-button" class="hidden">
-    <button id="admin-login" class="admin-button">
-      <i class="fas fa-lock"></i> Admin
-    </button>
-  </div>
-
-  <!-- Admin Panel (hidden by default) -->
-  <div id="admin-panel" class="admin-panel hidden">
-    <!-- Admin panel content will be dynamically generated -->
-  </div>
-
-  <!-- Scripts -->
-  <script src="js/config.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/content-loader.js"></script>
-  <script src="js/admin.js"></script>
-  <script src="js/app.js"></script>
-  <script>
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(reg => console.log('Service Worker registered'))
-          .catch(err => console.log('Service Worker registration failed: ', err));
-      });
-    }
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

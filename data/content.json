@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "title": "Welcome to Every Nation Indonesia",
+    "description": "Your home church in Indonesia."
+  },
+  "about": {
+    "text": "We are a church community focused on discipleship."
+  },
+  "ministries": ["Ministry 1", "Ministry 2"],
+  "contact": {
+    "email": "contact@everynation.id"
+  }
+}
