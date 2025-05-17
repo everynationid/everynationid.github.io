@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Every Nation Indonesia</title>
+  <meta name="description" content="Every Nation Indonesia - Transforming lives through Christ">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/icon-192x192.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="header">
+    <!-- Header content will be loaded from content.json -->
+  </header>
+
+  <main>
+    <section id="hero">
+      <!-- Hero content will be loaded from content.json -->
+    </section>
+
+    <section id="about" class="section">
+      <!-- About content will be loaded from content.json -->
+    </section>
+
+    <section id="services" class="section">
+      <!-- Services content will be loaded from content.json -->
+    </section>
+
+    <section id="events" class="section">
+      <!-- Events content will be loaded from content.json -->
+    </section>
+
+    <section id="connect" class="section">
+      <!-- Connect content will be loaded from content.json -->
+    </section>
+
+    <section id="giving" class="section">
+      <!-- Giving content will be loaded from content.json -->
+    </section>
+  </main>
+
+  <footer id="footer">
+    <!-- Footer content will be loaded from content.json -->
+  </footer>
+
+  <!-- Admin Panel Login Button (visible only to admins) -->
+  <div id="admin-button" class="hidden">
+    <button id="admin-login" class="admin-button">
+      <i class="fas fa-lock"></i> Admin
+    </button>
+  </div>
+
+  <!-- Admin Panel (hidden by default) -->
+  <div id="admin-panel" class="admin-panel hidden">
+    <!-- Admin panel content will be dynamically generated -->
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/content-loader.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.log('Service Worker registration failed: ', err));
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+// Configuration for the website
+const config = {
+  // GitHub repository information
+  github: {
+    owner: "", // GitHub username
+    repo: "", // Repository name
+    branch: "main", // Branch name
+    contentFile: "content.json", // Content file name
+    adminFile: "admins.json", // Admins file name
+  },
+
+  // Google OAuth client ID
+  googleClientId: "", // Your Google OAuth client ID
+
+  // Website information
+  siteName: "Every Nation Indonesia",
+  siteDescription: "Every Nation Indonesia - Transforming lives through Christ",
+
+  // Default content (used if content.json doesn't exist yet)
+  defaultContent: {
+    header: {
+      logo: "images/logo.png",
+      menuItems: [
+        { text: "Home", url: "#hero" },
+        { text: "About", url: "#about" },
+        { text: "Services", url: "#services" },
+        { text: "Events", url: "#events" },
+        { text: "Connect", url: "#connect" },
+        { text: "Give", url: "#giving" },
+      ],
+    },
+    hero: {
+      backgroundImage: "images/hero-bg.jpg",
+      title: "Welcome to Every Nation Indonesia",
+      subtitle: "Transforming lives through Christ",
+      buttons: [
+        { text: "Join Us", url: "#connect", primary: true },
+        { text: "Learn More", url: "#about", primary: false },
+      ],
+    },
+    about: {
+      title: "About Us",
+      subtitle: "Who We Are",
+      image: "images/about.jpg",
+      content: `
+        <h3>Our Vision</h3>
+        <p>Every Nation Indonesia is a church that exists to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.</p>
+        <h3>Our Mission</h3>
+        <p>We are committed to discipleship, leadership development, and world missions. We believe in the importance of reaching the next generation through our campus ministries.</p>
+      `,
+    },
+    services: {
+      title: "Our Services",
+      subtitle: "Join Us in Worship",
+      items: [
+        {
+          title: "Sunday Service",
+          image: "images/service-1.jpg",
+          description:
+            "Join us every Sunday at 10:00 AM for our main worship service. Experience powerful worship, relevant teaching, and a welcoming community.",
+          button: { text: "Learn More", url: "#" },
+        },
+        {
+          title: "Youth Service",
+          image: "images/service-2.jpg",
+          description:
+            "Our youth service is designed specifically for teenagers and young adults. Join us every Friday at 7:00 PM for an exciting time of worship and fellowship.",
+          button: { text: "Learn More", url: "#" },
+        },
+        {
+          title: "Prayer Meeting",
+          image: "images/service-3.jpg",
+          description:
+            "We believe in the power of prayer. Join us every Wednesday at 7:00 PM as we come together to pray for our church, city, and nation.",
+          button: { text: "Learn More", url: "#" },
+        },
+      ],
+    },
+    events: {
+      title: "Upcoming Events",
+      subtitle: "Join Us at Our Next Event",
+      items: [
+        {
+          title: "Leadership Conference",
+          image: "images/event-1.jpg",
+          date: "June 15-17, 2023",
+          description: "A three-day conference designed to equip and empower leaders in the church and marketplace.",
+          button: { text: "Register Now", url: "#" },
+        },
+        {
+          title: "Worship Night",
+          image: "images/event-2.jpg",
+          date: "July 5, 2023",
+          description: "An evening of worship and prayer as we come together to seek God's presence and direction.",
+          button: { text: "Learn More", url: "#" },
+        },
+        {
+          title: "Community Outreach",
+          image: "images/event-3.jpg",
+          date: "July 22, 2023",
+          description: "Join us as we serve our local community through various outreach initiatives and programs.",
+          button: { text: "Volunteer", url: "#" },
+        },
+      ],
+    },
+    connect: {
+      title: "Connect With Us",
+      subtitle: "Find Your Place in Our Community",
+      options: [
+        {
+          title: "Join a Life Group",
+          icon: "fas fa-users",
+          description:
+            "Life Groups are the heart of our church community. Join a group to grow in your faith and build meaningful relationships.",
+          button: { text: "Find a Group", url: "#" },
+        },
+        {
+          title: "Serve with Us",
+          icon: "fas fa-hands-helping",
+          description:
+            "We believe that everyone has a role to play in the church. Discover your gifts and serve with us in various ministries.",
+          button: { text: "Explore Opportunities", url: "#" },
+        },
+        {
+          title: "New to Church?",
+          icon: "fas fa-church",
+          description:
+            "If you're new to our church or to faith, we'd love to connect with you and help you take your next steps.",
+          button: { text: "Get Started", url: "#" },
+        },
+      ],
+    },
+    giving: {
+      title: "Giving",
+      subtitle: "Partner with Us in Ministry",
+      content:
+        "Your generous giving helps us continue our mission of transforming lives through Christ. We appreciate your support as we work together to make a difference in our community and beyond.",
+      options: [
+        {
+          title: "Online Giving",
+          icon: "fas fa-credit-card",
+          description: "Give securely online through our website or mobile app.",
+          button: { text: "Give Now", url: "#" },
+        },
+        {
+          title: "Bank Transfer",
+          icon: "fas fa-university",
+          description: "Transfer your giving directly to our church bank account.",
+          content: "Bank: BCA<br>Account Number: 123-456-7890<br>Account Name: Every Nation Indonesia",
+        },
+        {
+          title: "In-Person Giving",
+          icon: "fas fa-hand-holding-usd",
+          description: "Give in person during our Sunday services or at the church office.",
+          content: "Office Hours: Monday-Friday, 9:00 AM - 5:00 PM",
+        },
+      ],
+    },
+    footer: {
+      logo: "images/logo-white.png",
+      about:
+        "Every Nation Indonesia is a church that exists to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
+      contact: {
+        address: "Jl. Example Street No. 123, Jakarta, Indonesia",
+        phone: "+62 21 1234 5678",
+        email: "info@everynationindonesia.org",
+      },
+      quickLinks: [
+        { text: "Home", url: "#hero" },
+        { text: "About", url: "#about" },
+        { text: "Services", url: "#services" },
+        { text: "Events", url: "#events" },
+        { text: "Connect", url: "#connect" },
+        { text: "Give", url: "#giving" },
+      ],
+      socialLinks: [
+        { icon: "fab fa-facebook-f", url: "https://facebook.com/" },
+        { icon: "fab fa-instagram", url: "https://instagram.com/" },
+        { icon: "fab fa-youtube", url: "https://youtube.com/" },
+        { icon: "fab fa-twitter", url: "https://twitter.com/" },
+      ],
+      copyright: "© 2023 Every Nation Indonesia. All Rights Reserved.",
+    },
+  },
+}
