@@ -87,91 +87,91 @@
             "sections": [
                 {
                     
-                    "title": "Every Nation Medan",
+                    "name": "Every Nation Medan",
                     "address": "Jl.Sei Padang No 70, Medan, Sumatera Utara 20153",
                     "link": "https://goo.gl/maps/fVtroCxzW8xZDLeRA",
                     "phone": "+62 812 6907 0469",
                     "serviceTimes": ["Sunday 10:30 AM"]
                 },
                 {
-                    "title": "Every Nation Jakarta",
+                    "name": "Every Nation Jakarta",
                     "address": "Jl. Denpasar Raya blok F3 no 2 - 3, RT.16/RW.4, Kuningan, Karet Kuningan, Setiabudi, South Jakarta City, Jakarta 12950",
                     "link": "https://goo.gl/maps/6raASkSnJUfsVncL9",
                     "phone": "+62 813 1599 5060",
                     "serviceTimes": ["Sunday 9:00 AM", "11:00 AM"]
                 },
                 {
-                    "title": "Every Nation Kelapa Gading",
+                    "name": "Every Nation Kelapa Gading",
                     "address": "Mahaka Square Lt. 2 Unit A30-32, Jl. Raya Kelapa Nias No.6, Kelapa Gading, Jakarta Utara, DKI Jakarta 14240",
                     "link": "https://goo.gl/maps/JgzVPgRTYeDqZ1136",
                     "phone": "+62 817 9168 016",
                     "serviceTimes": ["Sunday 10:00 AM"]
                 },
                 {
-                    "title": "Every Nation Jogjakarta",
+                    "name": "Every Nation Jogjakarta",
                     "address": "Grand Zuri Hotel, Jl. P. Mangkubumi No.18, Gowongan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55232",
                     "link": "https://goo.gl/maps/NgCAbLvgswQiG8Xx9",
                     "phone": "+62 8132 885 5883",
                     "serviceTimes": ["Sunday 09:30 AM"]
                 },
                 {
-                    "title": "Every Nation Surabaya",
+                    "name": "Every Nation Surabaya",
                     "address": "Lenmarc Mall Lt. 1 Unit 1-10, 16, Jl. Mayjen Yono Suwono No. 9 Surabaya",
                     "link": "https://goo.gl/maps/VF3fYnu5oJAdwd5N8",
                     "phone": "+62 31 5116 2971-72",
                     "serviceTimes": [ "Sunday 11:00 AM - Bahasa Indonesia", "Sunday 2:00 PM - English Service"]
                 },
                 {
-                    "title": "Every Nation Surabaya Timur",
+                    "name": "Every Nation Surabaya Timur",
                     "address": "Ruko Klampis Megah G22-15, Jl. Klampis Madya Utara I/32",
                     "link": "https://goo.gl/maps/",
                     "phone": "+6281938286603",
                     "serviceTimes": ["Sunday 9:00 AM"]
                 },
                 {
-                    "title": "Every Nation Denpasar",
+                    "name": "Every Nation Denpasar",
                     "address": "H-CULTURE Building, Jl. Bypass Ngurah Rai No. 447, Suwung Batan Kendal, Denpasar Selatan, Bali",
                     "link": "https://goo.gl/maps/FoVietojwhhCAMBU8",
                     "phone": "+62 8193 435 6814",
                     "serviceTimes": ["Sunday 08:00 AM", "10:30 AM"]
                 },
                 {
-                    "title": "Every Nation Jimbaran",
+                    "name": "Every Nation Jimbaran",
                     "address": "Hotel Best Western Kamala Jimbaran, Jl. Raya Uluwatu No.88X, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361",
                     "link": "https://goo.gl/maps/vztCWGQayiFgK79S9",
                     "phone": "+62 8123 943 6610",
                     "serviceTimes": ["Sunday 09:30 AM"]
                 },
                 {
-                    "title": "Every Nation Dalung",
+                    "name": "Every Nation Dalung",
                     "address": "Aston Denpasar Lt. 1, Jl. Gatot Subroto No. 283, Denpasar Utara, Bali",
                     "link": "https://goo.gl/maps/eWqnv1ZyT2kNyHWM8",
                     "phone": "+62 8969 528 6273",
                     "serviceTimes": ["Sunday 09:00 AM"]
                 },
                 {
-                    "title": "Every Nation Kupang",
+                    "name": "Every Nation Kupang",
                     "address": "Jalan Lakbanu Gang Anggrek 3, Liliba",
                     "link": "https://goo.gl/maps/",
                     "phone": "+62 8133 868 0237",
                     "serviceTimes": ["Sunday 09:00 AM"]
                 },
                 {
-                    "title": "Every Nation Makassar",
+                    "name": "Every Nation Makassar",
                     "address": "Grand Hotel Maleo Lt. 5 - Funcion Room, Jl. Pelita Raya 8 No. 1. Panakukkang, Makassar - Sulawesi Selatan 90222",
                     "link": "https://goo.gl/maps/n2Zpij8K6P5jsAUj8",
                     "phone": "+62 8239 447 2029",
                     "serviceTimes": ["Sunday 10:00 AM"]
                 },
                 {
-                    "title": "Every Nation Palu",
+                    "name": "Every Nation Palu",
                     "address": "Kompleks Ruko Graha Towua Blok C No. 17 Palu",
                     "link": "https://goo.gl/maps/mCYXfwGBmJjNUqVP9",
                     "phone": "+62 8222 533 4579",
                     "serviceTimes": ["Sunday 09:00 AM"]
                 },
                 {
-                    "title": "Every Nation Manado",
+                    "name": "Every Nation Manado",
                     "address": "Jl. Kampus Timur (Behind RM. Pignik), Kleak, Malalayang, Manado 95115",
                     "link": "https://goo.gl/maps/pVGp8mSuFUkk1kXs5",
                     "phone": "+62 8134 000 2423",
