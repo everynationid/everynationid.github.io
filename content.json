@@ -25,7 +25,7 @@
 
     "menu": [
         { "title": "Home", "link": "/" },
-        { "title": "About", "link": "/#about" },
+        { "title": "About", "link": "/about" },
         { "title": "Contact Us", "link": "/#contact" },
         { "title": "Locations", "link": "/#locations" }
     ],
@@ -33,7 +33,7 @@
         "text": "© 2025 Every Nation Indonesia. All rights reserved.",
         "socialMedia": [
             { "platform": "Facebook", "link": "https://facebook.com/everynationindonesia" },
-            { "platform": "Instagram", "link": "https://instagram.com/everynationindonesia" }
+            { "platform": "Instagram", "link": "https://instagram.com/everynationid" }
             
         ]
     },
