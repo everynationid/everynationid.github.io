@@ -71,18 +71,22 @@ async function loadFullLayout(path) {
         // Clear existing content
         contentArea.innerHTML = '';
 
-        // Handle locations page search
+        // Handle locations page differently
         if (path === '/locations') {
+            // Add search interface
             contentArea.innerHTML = `
                 <div class="search-container">
                     <input type="text" 
                            id="locationSearch" 
-                           placeholder="Search locations by name, area, or phone..." 
+                           placeholder="Search locations..." 
                            class="search-input"
                            aria-label="Search locations">
-                    <div id="searchResults"></div>
+                    <div id="searchResults" class="locations-list"></div>
                 </div>
             `;
+
+            // Initial render of all locations
+            renderLocations(allLocations);
 
             // Add search functionality
             document.getElementById('locationSearch').addEventListener('input', (e) => {
@@ -93,6 +97,9 @@ async function loadFullLayout(path) {
                 });
                 renderLocations(filtered);
             });
+
+            // Skip regular content rendering
+            return;
         }
 
         // Update header
@@ -172,13 +179,22 @@ async function loadFullLayout(path) {
 }
 
 // Moved outside the loadFullLayout function
+
+
 function renderLocations(locations) {
     const resultsContainer = document.getElementById('searchResults');
-    if (resultsContainer) {
-        resultsContainer.innerHTML = locations.map(location => 
-            createSectionHTML(location)
-        ).join('');
-    }
+    if (!resultsContainer) return;
+
+    resultsContainer.innerHTML = locations.map(location => `
+        <div class="location-card">
+            <h3>${location.name}</h3>
+            <div class="location-details">
+                ${location.address ? `<p class="address">📍 ${location.address}</p>` : ''}
+                ${location.phone ? `<p class="phone">📞 <a href="tel:${location.phone}">${location.phone}</a></p>` : ''}
+                ${location.link ? `<a href="${location.link}" class="map-link" target="_blank">View on Map</a>` : ''}
+            </div>
+        </div>
+    `).join('');
 }
 
 

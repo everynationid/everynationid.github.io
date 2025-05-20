@@ -378,3 +378,35 @@ a:hover {
 .map-icon {
     font-size: 1.2em;
 }
+
+.locations-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.location-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.location-card h3 {
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+}
+
+.location-details p {
+    margin: 0.5rem 0;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white !important;
+    border-radius: 4px;
+    text-decoration: none;
+}
