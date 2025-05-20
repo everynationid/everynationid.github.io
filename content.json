@@ -25,9 +25,9 @@
 
     "menu": [
         { "title": "Home", "link": "/" },
-        { "title": "About", "link": "/about" },
-        { "title": "Contact Us", "link": "/contact" },
-        { "title": "Locations", "link": "/locations" }
+        { "title": "About", "link": "/#about" },
+        { "title": "Contact Us", "link": "/#contact" },
+        { "title": "Locations", "link": "/#locations" }
     ],
     "footer": {
         "text": "© 2025 Every Nation Indonesia. All rights reserved.",
@@ -50,6 +50,7 @@
                     "content": "<ul><li>Sunday Service: 9:00 AM</li><li>Bible Study: Wednesday 7:00 PM</li></ul>"
                 }
             ]
+            
         },
         "about": {
             "sections": [
