@@ -257,3 +257,31 @@ a:hover {
 .content-card {
     animation: fadeIn 0.3s ease-in-out;
 }
+
+/* Location Styles */
+.location-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+    padding: 1.5rem;
+}
+
+.location-info p {
+    margin: 0.5rem 0;
+}
+
+.map-link {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 0.5rem 0;
+}
+
+.service-times h3 {
+    color: var(--primary-color);
+    margin-top: 1rem;
+}

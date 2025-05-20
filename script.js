@@ -132,31 +132,52 @@ async function loadFullLayout(path) {
     }
 }
 
+
+
 function createSectionHTML(section) {
     if (!section) return '';
     
     let contentHTML = section.content || '';
     
+    // Handle contact lists
     if (section.contacts && Array.isArray(section.contacts)) {
         contentHTML += '<ul class="contact-list">';
         section.contacts.forEach(contact => {
-            contentHTML += `<li><strong>${contact.type || ''}:</strong> ${contact.value || ''}</li>`;
+            contentHTML += `<li><strong>${contact.type}:</strong> ${contact.value}</li>`;
         });
         contentHTML += '</ul>';
     }
     
+    // Add location-specific fields
+    if (section.address) {
+        contentHTML += `<p class="location-address">📍 ${section.address}</p>`;
+    }
+    
+    if (section.link) {
+        contentHTML += `<a href="${section.link}" target="_blank" rel="noopener" class="map-link">View on Map</a>`;
+    }
+    
+    if (section.phone) {
+        contentHTML += `<p class="location-phone">📞 ${section.phone}</p>`;
+    }
+    
+    // Handle service times
     if (section.serviceTimes && Array.isArray(section.serviceTimes)) {
-        contentHTML += '<ul class="service-times">';
+        contentHTML += '<div class="service-times"><h3>Service Times:</h3><ul>';
         section.serviceTimes.forEach(time => {
             contentHTML += `<li>${time}</li>`;
         });
-        contentHTML += '</ul>';
+        contentHTML += '</ul></div>';
     }
     
     return `
-        <h2>${section.title || 'Section'}</h2>
-        <div class="section-content">${contentHTML}</div>
-        ${section.address ? `<p class="address">${section.address}</p>` : ''}
+        <div class="content-card">
+            <h2>${section.title || 'Section'}</h2>
+            <div class="section-content">
+                ${contentHTML}
+                ${section.name ? `<p class="location-name">${section.name}</p>` : ''}
+            </div>
+        </div>
     `;
 }
 
