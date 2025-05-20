@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CMS Panel</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        .token-input {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .token-input input {
+            padding: 8px;
+            margin: 5px;
+            width: 300px;
+        }
+    </style>
+    <meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self';
+               script-src 'self' https://accounts.google.com;
+               style-src 'self' 'unsafe-inline';
+               img-src 'self' data:;
+               connect-src 'self' https://api.github.com;
+               frame-src https://accounts.google.com;
+               object-src 'none';
+               base-uri 'self';
+               form-action 'self';">
+</head>
+<body>
+    <div id="auth-container"></div>
+    <div id="token-ui" style="display:none;">
+        <div class="token-input">
+            <p>Enter GitHub Personal Access Token:</p>
+            <input type="password" id="githubToken">
+            <button onclick="storeToken()">Continue</button>
+        </div>
+    </div>
+    <div id="editor" style="display:none;">
+        <!-- Editor content remains same -->
+    </div>
+    <script src="auth.js"></script>
+    <script src="cms.js"></script>
+</body>
+</html>

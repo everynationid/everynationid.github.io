@@ -1,0 +1,14 @@
+{
+    "churchName": "Victory Church",
+    "tagline": "Building a Community of Faith",
+    "menu": [
+        { "title": "Home", "link": "/" },
+        { "title": "About", "link": "/about" }
+    ],
+    "sections": [
+        {
+            "title": "Welcome",
+            "content": "Join us for our weekly services."
+        }
+    ]
+}
