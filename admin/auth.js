@@ -3,7 +3,7 @@ let gitHubToken = null;
 
 function initGoogleAuth() {
     google.accounts.id.initialize({
-        client_id: 'YOUR_GOOGLE_CLIENT_ID',
+        client_id: '106460328171-7b5ahj0vh6t446bqndkn10hs35pi21a5.apps.googleusercontent.com',
         callback: handleCredentialResponse,
         auto_select: false
     });
@@ -19,7 +19,7 @@ async function verifyGoogleToken(token) {
         const payload = await response.json();
         
         // Verify domain (replace with your domain)
-        if(payload.hd !== 'your-domain.org') {
+      if(payload.hd !== 'everynationid.github.io' && payload.hd !== 'everynation.id') {
             throw new Error('Unauthorized domain');
         }
         

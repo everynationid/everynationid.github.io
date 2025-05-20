@@ -1,6 +1,6 @@
 {
-    "churchName": "Victory Church",
-    "tagline": "Building a Community of Faith",
+    "churchName": "Every Nation Indonesia",
+    "tagline": "Honoring God, Making Disciples",
     "menu": [
         { "title": "Home", "link": "/" },
         { "title": "About", "link": "/about" }
