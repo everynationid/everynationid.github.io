@@ -1,3 +1,54 @@
+/* Base Mobile Styles (existing) */
+
+/* Tablet & Desktop Styles */
+@media (min-width: 768px) {
+    .main-nav {
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem 2rem;
+    }
+
+    .content-area {
+        max-width: 1200px;
+        padding: 2rem;
+    }
+
+    .content-card {
+        margin: 2rem 0;
+        padding: 2rem;
+    }
+
+    /* Locations List */
+    .locations-list {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Search Container */
+    .search-container {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+
+    .search-input {
+        font-size: 1.1rem;
+        padding: 1.2rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .main-header {
+        padding: 3rem 2rem;
+    }
+
+    .main-nav a {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+
 :root {
     --primary-color: #1a4d8f;
     --secondary-color: #e9ecef;
@@ -323,17 +374,33 @@ a:hover {
 }
 
 
-
 /* Search Container */
 .search-container {
-    margin: 2rem 0;
     position: sticky;
-    top: 0;
-    background: white;
+    top: -1px; /* Allows shadow to appear when sticky */
     z-index: 100;
+    background: white;
+    transition: all 0.3s ease;
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+.search-container.scrolled {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    top: 0;
+}
+
+@media (min-width: 768px) {
+    .search-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+    
+    .search-container.scrolled {
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+}
+
 
 .search-input {
     width: 100%;

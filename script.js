@@ -12,11 +12,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initial load
     await loadFullLayout(window.location.pathname);
     
+
+
     // Handle navigation
     document.addEventListener('click', (event) => {
         // Find closest anchor tag if clicked on a child element
         const link = event.target.closest('a');
-        if (!link) return;
+        if (!link || link.origin !== window.location.origin) return;
+
+    // Remove active class from all links first
+    document.querySelectorAll('.main-nav a').forEach(l => l.classList.remove('active'));
+    
+    // Then add to clicked link
+    link.classList.add('active');
         
         // Skip if it's not an internal link
         if (link.origin !== window.location.origin) return;
@@ -136,6 +144,18 @@ async function loadFullLayout(path) {
         const pagePath = path === '/' ? 'home' : path.slice(1).split('#')[0];
         const pageData = content.pages?.[pagePath] || content.pages?.['home'];
 
+        // In loadFullLayout function, after creating search container
+        // if (path === '/locations') {
+        // Add scroll listener
+window.addEventListener('scroll', () => {
+    const searchContainer = document.querySelector('.search-container');
+    if (window.scrollY > 100) {
+        searchContainer.classList.add('scrolled');
+    } else {
+        searchContainer.classList.remove('scrolled');
+    }
+});
+
         // Add page-specific content (after search container for locations)
         if (pageData && pageData.sections && Array.isArray(pageData.sections)) {
             pageData.sections.forEach((section, index) => {
@@ -149,12 +169,27 @@ async function loadFullLayout(path) {
             contentArea.innerHTML = '<div class="content-card"><h2>Content Not Found</h2><p>The requested page could not be found.</p></div>';
         }
 
-        // Update active state
+
+        // In loadFullLayout function, update active state logic
         document.querySelectorAll('.main-nav a').forEach(link => {
+            // Get clean path without hash
             const currentPath = window.location.pathname;
-            const linkPath = new URL(link.href, window.location.origin).pathname;
-            link.classList.toggle('active', linkPath === currentPath);
+            const linkPath = new URL(link.href).pathname;
+            
+            // Remove any existing active class first
+            link.classList.remove('active');
+            
+            // Special case for home page
+            if (linkPath === '/' && currentPath === '/') {
+                link.classList.add('active');
+            }
+            // Match exact path for other pages
+            else if (linkPath === currentPath) {
+                link.classList.add('active');
+            }
         });
+
+
 
         // Handle hash link scrolling
         if (window.location.hash) {
