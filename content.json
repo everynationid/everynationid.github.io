@@ -10,10 +10,10 @@
         "Family:"
     ],
     "hero": {
-        "image": "path/to/hero-image.jpg",
+        "image": "assets/img/englobe.png",
         "text": "Welcome to Every Nation Indonesia",
         "buttonText": "Contact Us",
-        "buttonLink": "/contact"
+        "buttonLink": "/#contact"
     },
 
     "tagline": "Honor God, Make Disciples",
