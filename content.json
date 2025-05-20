@@ -26,8 +26,8 @@
     "menu": [
         { "title": "Home", "link": "/" },
         { "title": "About", "link": "/about" },
-        { "title": "Contact Us", "link": "/#contact" },
-        { "title": "Locations", "link": "/#locations" }
+        { "title": "Contact Us", "link": "/contact" },
+        { "title": "Locations", "link": "/locations" }
     ],
     "footer": {
         "text": "© 2025 Every Nation Indonesia. All rights reserved.",
@@ -67,12 +67,14 @@
                     "title": "Get in Touch",
                     "content": "We'd love to hear from you! Reach out through any of these methods:",
                     "contacts": [
-                        { "type": "email", "value": "info@church.com" },
-                        { "type": "phone", "value": "(555) 123-4567" },
-                        { "type": "address", "value": "123 Faith Avenue, Spiritual City" }
+                        { "type": "email", "value": "communications@everynation.id" },
+                        { "type": "phone", "value": "+62881025094708" },
+                        { "type": "whatsapp", "value": "+62881025094708" }
                     ]
                 }
+
             ]
+
         },
         "locations": {
             "sections": [
