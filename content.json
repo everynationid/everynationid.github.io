@@ -69,7 +69,9 @@
                     "contacts": [
                         { "type": "email", "value": "communications@everynation.id" },
                         { "type": "phone", "value": "+62881025094708" },
-                        { "type": "whatsapp", "value": "+62881025094708" }
+                        { "type": "whatsapp",
+                         "value": "+62881025094708" ,
+                          "link": "https://wa.me/62881025094708"}
                     ]
                 }
 
