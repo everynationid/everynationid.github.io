@@ -144,6 +144,20 @@ async function loadFullLayout(path) {
         const pagePath = path === '/' ? 'home' : path.slice(1).split('#')[0];
         const pageData = content.pages?.[pagePath] || content.pages?.['home'];
 
+        // In page content loading
+if (pagePath === 'home') {
+    contentArea.innerHTML = `
+        <section class="hero">
+            <div class="hero-content">
+                <h1>${content.pages.home.hero.heading}</h1>
+                <p>${content.pages.home.hero.tagline}</p>
+            </div>
+        </section>
+    `;
+    
+    // Then add sections normally
+}
+
         // In loadFullLayout function, after creating search container
         // if (path === '/locations') {
         // Add scroll listener
@@ -326,4 +340,25 @@ function filterLocations(query) {
 // Handle browser back/forward
 window.addEventListener('popstate', async () => {
     await loadFullLayout(window.location.pathname);
+});
+
+
+
+
+//back to top button behavior
+// Back to Top Button
+window.addEventListener('scroll', () => {
+    const backButton = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backButton.classList.add('visible');
+    } else {
+        backButton.classList.remove('visible');
+    }
+});
+
+document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });

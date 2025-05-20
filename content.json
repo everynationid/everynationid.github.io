@@ -9,12 +9,7 @@
         "Leadership Development",
         "Family:"
     ],
-    "hero": {
-        "image": "assets/img/englobe.png",
-        "text": "Welcome to Every Nation Indonesia",
-        "buttonText": "Contact Us",
-        "buttonLink": "/#contact"
-    },
+    
 
     "tagline": "Honor God, Make Disciples",
     "header": {
@@ -41,14 +36,30 @@
 
     "pages": {
         "home": {
-            "sections": [
-                {
-                    "title": "Why we exist",
-                    "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."
-                }
+            
+        "home": {
+            "hero": {
+                "image": "hero-bg.jpg",
+                "title": "Why we exist",
+                "heading": "Honor God, Make Disciples",
+                "tagline": "Honor God, Make Disciples",
+                "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."
+            },
+                
+                "image": "assets/img/englobe.png",
+                "text": "Welcome to Every Nation Indonesia",
+                "buttonText": "Contact Us",
+                "buttonLink": "/#contact"
+    },
+            
+            "sections": [{
+                    "title": "Why we exist"
+            }
             ]
+
+        }
                         
-        },
+        ,
         "about": {
             "sections": [
                 {
