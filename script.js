@@ -1,3 +1,6 @@
+// Add at the top of the file
+let allLocations = [];
+
 document.addEventListener('DOMContentLoaded', async () => {
     // Handle redirect from 404.html
     if (sessionStorage.redirect) {
@@ -54,7 +57,27 @@ async function loadFullLayout(path) {
         const response = await fetch('content.json');
         if (!response.ok) throw new Error(`Failed to load content: ${response.status}`);
         const content = await response.json();
+
+
+           // Store locations for search
+        allLocations = content.pages?.locations?.sections || [];
         
+        // Add search input if on locations page
+        if (path === '/locations') {
+            const searchHTML = `
+                <div class="search-container">
+                    <input type="text" id="locationSearch" 
+                           placeholder="Search locations..." 
+                           class="search-input">
+                </div>
+            `;
+            document.querySelector('.content-area').innerHTML = searchHTML;
+            
+            // Add search input event listener
+            document.getElementById('locationSearch')?.addEventListener('input', (e) => {
+                filterLocations(e.target.value.toLowerCase());
+            });
+        }
         // Update header
         document.querySelector('.main-header').innerHTML = `
             <h1>${content.churchName || 'Church Website'}</h1>
@@ -179,7 +202,34 @@ function createSectionHTML(section) {
             </div>
         </div>
     `;
+    // Update createSectionHTML to include data attributes
+
+    return `
+        <div class="content-card location-card" 
+             data-search="${section.title} ${section.address} ${section.phone}">
+            <!-- existing content -->
+        </div>
+    `;
+
 }
+
+
+
+function filterLocations(query) {
+    const filtered = allLocations.filter(location => {
+        const searchText = `${location.name} ${location.address} ${location.phone}`.toLowerCase();
+        return searchText.includes(query);
+    });
+    
+    const contentArea = document.querySelector('.content-area');
+    contentArea.innerHTML = document.querySelector('.search-container').outerHTML;
+    
+    filtered.forEach(location => {
+        contentArea.innerHTML += createSectionHTML(location);
+    });
+}
+
+
 
 // Handle browser back/forward
 window.addEventListener('popstate', async () => {

@@ -52,12 +52,15 @@
         "about": {
             "sections": [
                 {
-                    "title": "Our History",
-                    "content": "Founded in 2005, we've been serving the community through faith and action."
+                    "title": "Every Nation Campus",
+                    "content": "We are committed to reaching the next generation of leaders on campuses across Indonesia.",
+                    "image": "assets/img/englobe.png"
                 },
                 {
                     "title": "Our Mission",
-                    "content": "To spread God's love and build a strong, supportive Christian community."
+                    "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
+                    "link": "https://everynation.org",
+                    "linkText": "Learn more"
                 }
             ]
         },
@@ -115,7 +118,7 @@
                     "address": "Lenmarc Mall Lt. 1 Unit 1-10, 16, Jl. Mayjen Yono Suwono No. 9 Surabaya",
                     "link": "https://goo.gl/maps/VF3fYnu5oJAdwd5N8",
                     "phone": "+62 31 5116 2971-72",
-                    "serviceTimes": ["Sunday 09:00 AM", "11:00 AM"]
+                    "serviceTimes": [ "Sunday 11:00 AM - Bahasa Indonesia", "Sunday 2:00 PM - English Service"]
                 },
                 {
                     "title": "Every Nation Surabaya Timur",

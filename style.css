@@ -296,3 +296,37 @@ a:hover {
     color: #666;
     margin-top: 0.5rem;
 }
+
+/* Phone Links */
+.tel-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.whatsapp-link {
+    background: #25D366;
+    color: white !important;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.whatsapp-link:hover {
+    background: #128C7E;
+}
+
+.phone-wrapper {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+
+.contact-list .whatsapp-link {
+    margin-left: 1rem;
+    font-size: 0.9em;
+}
