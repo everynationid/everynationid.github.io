@@ -44,13 +44,10 @@
             "sections": [
                 {
                     "title": "Why we exist",
-                    "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."},
-                {
-                    "title": "Weekly Schedule",
-                    "content": "<ul><li>Sunday Service: 9:00 AM</li><li>Bible Study: Wednesday 7:00 PM</li></ul>"
+                    "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."
                 }
             ]
-            
+                        
         },
         "about": {
             "sections": [
