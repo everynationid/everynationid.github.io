@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'> 
     <title>Every Nation Indonesia</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
@@ -16,14 +19,16 @@
                object-src 'none';
                base-uri 'self';
                form-action 'self';">
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
+
 </head>
 <body>
-    <header class="main-header"></header>
+<header class="main-header"></header>
     <nav class="main-nav"></nav>
     <main class="content-area"></main>
+    
+    <!-- Add footer -->
+    <footer class="main-footer">
+        <p>&copy; ${new Date().getFullYear()} Your Church Name</p>
+    </footer>
     <script src="script.js"></script>
-</body>
 </html>

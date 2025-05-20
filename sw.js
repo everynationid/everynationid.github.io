@@ -14,14 +14,20 @@ self.addEventListener('install', (e) => {
         caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
     );
 });
+    
+
 
 self.addEventListener('fetch', (e) => {
     e.respondWith(
         caches.match(e.request).then(response => {
-            // Return cached file if found
-            if(response) return response;
+            // Always serve layout elements from cache
+            if(e.request.url.includes('/style.css') || 
+               e.request.url.includes('/script.js') ||
+               e.request.url.includes('/content.json')) {
+                return response || fetch(e.request);
+            }
             
-            // Handle navigation requests
+            // For HTML requests, serve index.html
             if(e.request.mode === 'navigate') {
                 return caches.match('/index.html');
             }
