@@ -1,14 +1,74 @@
 {
     "churchName": "Every Nation Indonesia",
-    "tagline": "Honoring God, Making Disciples",
+    "description": "Family of churches in Indonesia, part of the Every Nation family worldwide.",
+    "mission": "To honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
+    "coreValues": [
+        "Lordship of Jesus Christ",
+        "Discipleship",
+        "Evangelism",
+        "Leadership Development",
+        "Family:"
+    ],
+
+    "tagline": "Honor God, Make Disciples",
     "menu": [
         { "title": "Home", "link": "/" },
-        { "title": "About", "link": "/about" }
+        { "title": "About", "link": "/about" },
+        { "title": "Contact Us", "link": "/contact" },
+        { "title": "Locations", "link": "/locations" }
     ],
-    "sections": [
-        {
-            "title": "Welcome",
-            "content": "Join us for our weekly services."
+    "pages": {
+        "home": {
+            "sections": [
+                {
+                    "title": "Why we exist",
+                    "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."},
+                {
+                    "title": "Weekly Schedule",
+                    "content": "<ul><li>Sunday Service: 9:00 AM</li><li>Bible Study: Wednesday 7:00 PM</li></ul>"
+                }
+            ]
+        },
+        "about": {
+            "sections": [
+                {
+                    "title": "Our History",
+                    "content": "Founded in 2005, we've been serving the community through faith and action."
+                },
+                {
+                    "title": "Our Mission",
+                    "content": "To spread God's love and build a strong, supportive Christian community."
+                }
+            ]
+        },
+        "contact": {
+            "sections": [
+                {
+                    "title": "Get in Touch",
+                    "content": "We'd love to hear from you! Reach out through any of these methods:",
+                    "contacts": [
+                        { "type": "email", "value": "info@church.com" },
+                        { "type": "phone", "value": "(555) 123-4567" },
+                        { "type": "address", "value": "123 Faith Avenue, Spiritual City" }
+                    ]
+                }
+            ]
+        },
+        "locations": {
+            "sections": [
+                {
+                    "title": "Main Campus",
+                    "content": "Join us at our primary location:",
+                    "address": "123 Faith Avenue, Spiritual City",
+                    "serviceTimes": ["Sunday 9:00 AM", "Wednesday 7:00 PM"]
+                },
+                {
+                    "title": "Downtown Campus",
+                    "content": "Our urban ministry center:",
+                    "address": "456 Grace Street, Metro City",
+                    "serviceTimes": ["Sunday 11:00 AM", "Thursday 7:30 PM"]
+                }
+            ]
         }
-    ]
+    }
 }

@@ -95,3 +95,51 @@ async function saveContent() {
 
 // Initialize when ready
 document.addEventListener('DOMContentLoaded', initGoogleAuth);
+
+let currentPage = 'home';
+
+function showPage(page) {
+    currentPage = page;
+    renderEditor();
+}
+
+function renderEditor() {
+    const pageData = contentData.pages[currentPage];
+    const editor = document.getElementById('page-editor');
+    
+    editor.innerHTML = `
+        <h2>Editing: ${currentPage.charAt(0).toUpperCase() + currentPage.slice(1)} Page</h2>
+        ${pageData.sections.map((section, index) => `
+            <div class="section-editor">
+                <input type="text" value="${section.title}" 
+                    onchange="updateSection(${index}, 'title', this.value)">
+                <textarea onchange="updateSection(${index}, 'content', this.value)">
+                    ${section.content}
+                </textarea>
+                ${section.address ? `
+                    <input type="text" value="${section.address}" 
+                        onchange="updateSection(${index}, 'address', this.value)">
+                ` : ''}
+                <button onclick="removeSection(${index})">Delete Section</button>
+            </div>
+        `).join('')}
+        <button onclick="addSection()">Add New Section</button>
+    `;
+}
+
+function updateSection(index, field, value) {
+    contentData.pages[currentPage].sections[index][field] = value;
+}
+
+function addSection() {
+    contentData.pages[currentPage].sections.push({
+        title: "New Section",
+        content: "Add your content here"
+    });
+    renderEditor();
+}
+
+function removeSection(index) {
+    contentData.pages[currentPage].sections.splice(index, 1);
+    renderEditor();
+}
