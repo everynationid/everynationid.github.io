@@ -265,15 +265,6 @@ a:hover {
     font-size: 1.1rem;
 }
 
-.map-link {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white !important;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    margin: 0.5rem 0;
-}
 
 .location-phone {
     margin: 0.5rem 0;
@@ -329,4 +320,61 @@ a:hover {
 .contact-list .whatsapp-link {
     margin-left: 1rem;
     font-size: 0.9em;
+}
+
+
+
+/* Search Container */
+.search-container {
+    margin: 2rem 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26,77,143,0.2);
+}
+
+#searchResults {
+    margin-top: 2rem;
+}
+
+/* Map Link Fix */
+.map-link-container {
+    margin: 1rem 0;
+}
+
+.map-link {
+    background: var(--primary-color);
+    color: white !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.map-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.map-icon {
+    font-size: 1.2em;
 }
