@@ -11,12 +11,23 @@
     ],
 
     "tagline": "Honor God, Make Disciples",
+    
     "menu": [
         { "title": "Home", "link": "/" },
         { "title": "About", "link": "/about" },
         { "title": "Contact Us", "link": "/contact" },
         { "title": "Locations", "link": "/locations" }
     ],
+    "footer": {
+        "text": "© 2025 Every Nation Indonesia. All rights reserved.",
+        "socialMedia": [
+            { "platform": "Facebook", "link": "https://facebook.com/everynationindonesia" },
+            { "platform": "Instagram", "link": "https://instagram.com/everynationindonesia" },
+            
+        ]
+    },
+
+    // ... rest of content
     "pages": {
         "home": {
             "sections": [
@@ -71,23 +82,6 @@
             ]
         }
     }
-}
-{
-    "menu": [
-        { "title": "Home", "link": "/" },
-        { "title": "About", "link": "/about" },
-        { "title": "Contact Us", "link": "/contact" },
-        { "title": "Locations", "link": "/locations" }
-    ],
-    // ... rest of content
-}
-{
-    "footer": {
-        "text": "© 2025 Every Nation Indonesia. All rights reserved.",
-        "socialMedia": [
-            { "platform": "Facebook", "link": "https://facebook.com/everynationindonesia" },
-            { "platform": "Instagram", "link": "https://instagram.com/everynationindonesia" },
-            
-        ]
-    }
+
+
 }
