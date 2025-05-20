@@ -258,17 +258,11 @@ a:hover {
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Location Styles */
-.location-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 1rem 0;
-    padding: 1.5rem;
-}
 
-.location-info p {
+/* Location Specific Styles */
+.location-address {
     margin: 0.5rem 0;
+    font-size: 1.1rem;
 }
 
 .map-link {
@@ -281,7 +275,24 @@ a:hover {
     margin: 0.5rem 0;
 }
 
+.location-phone {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.service-times {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
 .service-times h3 {
     color: var(--primary-color);
-    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.location-name {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
 }
