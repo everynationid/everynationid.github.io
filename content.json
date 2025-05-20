@@ -9,9 +9,20 @@
         "Leadership Development",
         "Family:"
     ],
+    "hero": {
+        "image": "path/to/hero-image.jpg",
+        "text": "Welcome to Every Nation Indonesia",
+        "buttonText": "Contact Us",
+        "buttonLink": "/contact"
+    },
 
     "tagline": "Honor God, Make Disciples",
-    
+    "header": {
+        "logo": "path/to/logo.png",
+        "title": "Every Nation Indonesia",
+        "subtitle": "A Family of Churches"
+    },
+
     "menu": [
         { "title": "Home", "link": "/" },
         { "title": "About", "link": "/about" },
