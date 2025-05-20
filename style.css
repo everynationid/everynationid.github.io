@@ -50,3 +50,29 @@ body {
     margin: 1rem 0;
     padding: 1.5rem;
 }
+
+/* Add these styles */
+.main-nav a.active {
+    background: var(--primary-color);
+    color: white !important;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.contact-list li {
+    margin: 0.5rem 0;
+}
+
+.service-times {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.address {
+    color: #666;
+    margin-top: 1rem;
+}
