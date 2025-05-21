@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initial load
     await loadFullLayout(window.location.pathname);
-    
 
 
     // Handle navigation
@@ -78,6 +77,31 @@ async function loadFullLayout(path) {
 
         // Clear existing content
         contentArea.innerHTML = '';
+               // Determine which page to show
+        const pagePath = path === '/' ? 'home' : path.slice(1).split('#')[0];
+        const pageData = content.pages?.[pagePath] || content.pages?.['home'];
+
+        // In page content loading
+        // // Update the home page rendering in loadFullLayout
+if (pagePath === 'home') {
+    // Clear existing content first
+    contentArea.innerHTML = '';
+    
+    // Add hero section if exists
+    if (content.pages?.home?.hero) {
+        const heroHTML = `
+            <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.4)), url('${content.pages.home.hero.image}')">
+                <div class="hero-content">
+                    <h1>${content.pages.home.hero.heading || content.churchName}</h1>
+                    <p>${content.pages.home.hero.tagline || content.tagline}</p>
+                </div>
+            </section>
+        `;
+        contentArea.innerHTML += heroHTML;
+    }
+
+    // Then add sections normally...
+}
 
         // Handle locations page differently
         if (path === '/locations') {
@@ -140,23 +164,8 @@ async function loadFullLayout(path) {
             `;
         }
 
-        // Determine which page to show
-        const pagePath = path === '/' ? 'home' : path.slice(1).split('#')[0];
-        const pageData = content.pages?.[pagePath] || content.pages?.['home'];
+ 
 
-        // In page content loading
-if (pagePath === 'home') {
-    contentArea.innerHTML = `
-        <section class="hero">
-            <div class="hero-content">
-                <h1>${content.pages.home.hero.heading}</h1>
-                <p>${content.pages.home.hero.tagline}</p>
-            </div>
-        </section>
-    `;
-    
-    // Then add sections normally
-}
 
         // In loadFullLayout function, after creating search container
         // if (path === '/locations') {

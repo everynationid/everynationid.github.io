@@ -3,7 +3,7 @@ let gitHubToken = null;
 
 function initGoogleAuth() {
     google.accounts.id.initialize({
-        client_id: '106460328171-7b5ahj0vh6t446bqndkn10hs35pi21a5.apps.googleusercontent.com',
+        client_id: '.apps.googleusercontent.com',
         callback: handleCredentialResponse,
         auto_select: false
     });
