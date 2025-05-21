@@ -355,19 +355,21 @@ window.addEventListener('popstate', async () => {
 
 
 //back to top button behavior
-// Back to Top Button
-window.addEventListener('scroll', () => {
-    const backButton = document.getElementById('backToTop');
-    if (window.scrollY > 300) {
-        backButton.classList.add('visible');
-    } else {
-        backButton.classList.remove('visible');
-    }
-});
-
-document.getElementById('backToTop').addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+// Modify back to top button initialization
+const backToTopButton = document.getElementById('backToTop');
+if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
     });
-});
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
