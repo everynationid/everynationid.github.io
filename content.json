@@ -7,17 +7,14 @@
         "Discipleship",
         "Evangelism",
         "Leadership Development",
-        "Family:"
+        "Family"
     ],
-    
-
     "tagline": "Honor God, Make Disciples",
     "header": {
         "logo": "path/to/logo.png",
         "title": "Every Nation Indonesia",
         "subtitle": "A Family of Churches"
     },
-
     "menu": [
         { "title": "Home", "link": "/" },
         { "title": "About", "link": "/about" },
@@ -29,14 +26,10 @@
         "socialMedia": [
             { "platform": "Facebook", "link": "https://facebook.com/everynationindonesia" },
             { "platform": "Instagram", "link": "https://instagram.com/everynationid" }
-            
         ]
     },
-
-
     "pages": {
         "home": {
-            "title": "Welcome to Every Nation Indonesia",
             "hero": {
                 "image": "/assets/img/30th_CollageBackground.jpg",
                 "title": "Why we exist",
@@ -44,21 +37,14 @@
                 "tagline": "Honor God, Make Disciples",
                 "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."
             },
-                
-                "image": "assets/img/englobe.png",
-                "text": "Welcome to Every Nation Indonesia",
-                "buttonText": "Contact Us",
-                "buttonLink": "/#contact"
-    ,
-            
-            "sections": [{
-                    "title": "Why we exist"
-            }
+            "sections": [
+                {
+                    "title": "Why we exist",
+                    "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
+                    "image": "assets/img/englobe.png"
+                }
             ]
-
-        }
-                        
-        ,
+        },
         "about": {
             "sections": [
                 {
@@ -82,21 +68,20 @@
                     "contacts": [
                         { "type": "email", "value": "communications@everynation.id" },
                         { "type": "phone", "value": "+62881025094708" },
-                        { "type": "whatsapp",
-                         "value": "+62881025094708" ,
-                          "link": "https://wa.me/62881025094708"}
+                        { 
+                            "type": "whatsapp",
+                            "value": "+62881025094708",
+                            "link": "https://wa.me/62881025094708"
+                        }
                     ]
                 }
             ]
-
         },
-       
         "locations": {
             "title": "Our locations",
             "content": "Find a church near you.",
             "sections": [
                 {
-                    
                     "name": "Every Nation Medan",
                     "address": "Jl.Sei Padang No 70, Medan, Sumatera Utara 20153",
                     "link": "https://goo.gl/maps/fVtroCxzW8xZDLeRA",
@@ -187,9 +172,7 @@
                     "phone": "+62 8134 000 2423",
                     "serviceTimes": ["Sunday 10:00 AM"]
                 }
-        ]
+            ]
+        }
     }
-    }
-
-
 }

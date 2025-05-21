@@ -1,120 +1,333 @@
+// Store all locations for search functionality
 let allLocations = [];
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Back to Top Button
-    const backToTopButton = document.getElementById('backToTop');
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            backToTopButton.classList.toggle('visible', window.scrollY > 300);
-        });
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    // Handle redirect from 404.html
+    if (sessionStorage.redirect) {
+        const path = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        window.history.replaceState({}, '', path);
     }
 
     // Initial load
     await loadFullLayout(window.location.pathname);
 
-    // Navigation handler
+    // Handle navigation
     document.addEventListener('click', (event) => {
+        // Find closest anchor tag if clicked on a child element
         const link = event.target.closest('a');
         if (!link || link.origin !== window.location.origin) return;
-
-        event.preventDefault();
-        const path = link.pathname;
         
-        // Update active state
+        // Remove active class from all links first
         document.querySelectorAll('.main-nav a').forEach(l => l.classList.remove('active'));
+        
+        // Then add to clicked link
         link.classList.add('active');
         
-        // Handle navigation
-        window.history.pushState({}, '', path);
+        // Skip if it's not an internal link
+        if (link.origin !== window.location.origin) return;
+        
+        // Handle hash links specially
+        if (link.hash && link.pathname === window.location.pathname) {
+            // Let the browser handle the hash scroll naturally
+            return;
+        }
+        
+        event.preventDefault();
+        const path = link.pathname;
+        window.history.pushState({}, '', path + (link.hash || ''));
         loadFullLayout(path);
+        
+        // Handle hash scrolling after page load
+        if (link.hash) {
+            setTimeout(() => {
+                const element = document.querySelector(link.hash);
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     });
+
+    // Setup back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register('sw.js');
+            console.log('Service worker registered:', registration);
+        } catch (error) {
+            console.error('Service worker registration failed:', error);
+        }
+    }
 });
 
 async function loadFullLayout(path) {
     try {
         const response = await fetch('content.json');
+        if (!response.ok) throw new Error(`Failed to load content: ${response.status}`);
         const content = await response.json();
+
+        // Get content area reference
         const contentArea = document.querySelector('.content-area');
-        
-        // Clear content
+        if (!contentArea) {
+            console.error('Content area element not found');
+            return;
+        }
+
+        // Show loading indicator
         contentArea.innerHTML = '<div class="loading-spinner"></div>';
 
-        // Load page-specific content
-        const pagePath = path === '/' ? 'home' : path.slice(1);
-        const pageData = content.pages[pagePath] || content.pages.home;
+        // Store locations for search
+        allLocations = content.pages?.locations?.sections || [];
 
-        // Header
+        // Determine which page to show
+        const pagePath = path === '/' ? 'home' : path.slice(1).split('#')[0];
+        const pageData = content.pages?.[pagePath] || content.pages?.['home'];
+
+        // Update header
         document.querySelector('.main-header').innerHTML = `
-            <h1>${content.churchName}</h1>
-            <p>${content.tagline}</p>
+            <h1>${content.churchName || 'Church Website'}</h1>
+            <p>${content.tagline || ''}</p>
         `;
 
-        // Navigation
+        // Update navigation
         const nav = document.querySelector('.main-nav');
-        nav.innerHTML = content.menu.map(item => `
-            <a href="${item.link}" ${path === item.link ? 'class="active"' : ''}>${item.title}</a>
-        `).join('');
+        nav.innerHTML = '';
+        if (content.menu && Array.isArray(content.menu)) {
+            content.menu.forEach(item => {
+                nav.innerHTML += `<a href="${item.link}">${item.title}</a>`;
+            });
+        }
 
-        // Hero Section
-        if (pagePath === 'home' && content.pages.home.hero) {
-            contentArea.innerHTML = `
-                <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.4)), url('${content.pages.home.hero.image}')">
-                    <div class="hero-content">
-                        <h1>${content.pages.home.hero.heading}</h1>
-                        <p>${content.pages.home.hero.tagline}</p>
-                    </div>
-                </section>
+        // Update footer
+        const footer = document.querySelector('.main-footer');
+        if (footer) {
+            footer.innerHTML = `
+                <p>${content.footer?.text || `&copy; ${new Date().getFullYear()} ${content.churchName || 'Church Website'}`}</p>
+                ${content.footer?.socialMedia ? 
+                    `<div class="social-links">
+                        ${content.footer.socialMedia.map(social => 
+                            `<a href="${social.link}" target="_blank" rel="noopener noreferrer">${social.platform}</a>`
+                        ).join('')}
+                    </div>` : ''
+                }
             `;
         }
 
-        // Locations Page
-        if (pagePath === 'locations') {
-            allLocations = content.pages.locations.sections;
+        // Clear existing content
+        contentArea.innerHTML = '';
+
+        // Handle home page - add hero section
+        if (pagePath === 'home') {
+            // Add hero section if exists
+            if (content.pages?.home?.hero) {
+                const heroHTML = `
+                    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${content.pages.home.hero.image || 'default-hero.jpg'}')">
+                        <div class="hero-content">
+                            <h1>${content.pages.home.hero.heading || content.churchName}</h1>
+                            <p>${content.pages.home.hero.tagline || content.tagline}</p>
+                        </div>
+                    </section>
+                `;
+                contentArea.innerHTML += heroHTML;
+            }
+        }
+
+        // Handle locations page differently
+        if (path === '/locations') {
+            // Add search interface
             contentArea.innerHTML = `
                 <div class="search-container">
-                    <input type="text" id="locationSearch" placeholder="Search locations...">
+                    <input type="text" 
+                           id="locationSearch" 
+                           placeholder="Search locations..." 
+                           class="search-input"
+                           aria-label="Search locations">
                     <div id="searchResults" class="locations-list"></div>
                 </div>
             `;
+
+            // Add scroll listener for search container
+            window.addEventListener('scroll', () => {
+                const searchContainer = document.querySelector('.search-container');
+                if (searchContainer) {
+                    if (window.scrollY > 100) {
+                        searchContainer.classList.add('scrolled');
+                    } else {
+                        searchContainer.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            // Initial render of all locations
+            renderLocations(allLocations);
+
+            // Add search functionality
             document.getElementById('locationSearch').addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
-                const filtered = allLocations.filter(location => 
-                    `${location.name} ${location.address} ${location.phone}`.toLowerCase().includes(query)
-                );
+                const filtered = allLocations.filter(location => {
+                    const searchText = `${location.name} ${location.address} ${location.phone}`.toLowerCase();
+                    return searchText.includes(query);
+                });
                 renderLocations(filtered);
             });
-            renderLocations(allLocations);
+
+            // Skip regular content rendering
+            return;
         }
 
-        // Other Pages
-        else {
-            contentArea.innerHTML = pageData.sections.map(section => `
-                <div class="content-card">
-                    <h2>${section.title}</h2>
-                    <div class="section-content">${section.content}</div>
-                </div>
-            `).join('');
+        // Add page-specific content
+        if (pageData && pageData.sections && Array.isArray(pageData.sections)) {
+            pageData.sections.forEach((section, index) => {
+                const sectionElement = document.createElement('div');
+                sectionElement.className = 'content-card';
+                sectionElement.id = `section-${index}`;
+                sectionElement.innerHTML = createSectionHTML(section);
+                contentArea.appendChild(sectionElement);
+            });
+        } else if (path !== '/locations') {  // Only show error if not on locations page
+            contentArea.innerHTML = '<div class="content-card"><h2>Content Not Found</h2><p>The requested page could not be found.</p></div>';
+        }
+
+        // Update active state for navigation
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            // Get clean path without hash
+            const currentPath = window.location.pathname;
+            const linkPath = new URL(link.href).pathname;
+            
+            // Remove any existing active class first
+            link.classList.remove('active');
+            
+            // Special case for home page
+            if (linkPath === '/' && currentPath === '/') {
+                link.classList.add('active');
+            }
+            // Match exact path for other pages
+            else if (linkPath === currentPath) {
+                link.classList.add('active');
+            }
+        });
+
+        // Handle hash link scrolling
+        if (window.location.hash) {
+            setTimeout(() => {
+                const element = document.querySelector(window.location.hash);
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         }
 
     } catch (error) {
-        console.error('Error:', error);
-        document.querySelector('.content-area').innerHTML = `
-            <div class="error">Error loading content. Please refresh the page.</div>
-        `;
+        console.error('Error loading content:', error);
+        const contentArea = document.querySelector('.content-area');
+        if (contentArea) {
+            contentArea.innerHTML = `
+                <div class="content-card error">
+                    <h2>Error Loading Content</h2>
+                    <p>Unable to load page content. Please try again later.</p>
+                </div>
+            `;
+        }
     }
 }
 
 function renderLocations(locations) {
     const resultsContainer = document.getElementById('searchResults');
+    if (!resultsContainer) return;
+
     resultsContainer.innerHTML = locations.map(location => `
-        <div class="location-card">
+        <div class="location-card" data-search="${location.name} ${location.address} ${location.phone}">
             <h3>${location.name}</h3>
-            <p class="address">📍 ${location.address}</p>
-            <p class="phone">📞 <a href="tel:${location.phone}">${location.phone}</a></p>
-            <a href="${location.link}" class="map-link" target="_blank">View on Map</a>
+            <div class="location-details">
+                ${location.address ? `<p class="address">📍 ${location.address}</p>` : ''}
+                ${location.phone ? `<p class="phone">📞 <a href="tel:${location.phone}">${location.phone}</a></p>` : ''}
+                ${location.serviceTimes && location.serviceTimes.length > 0 ? `
+                    <div class="service-times">
+                        <h3>Service Times:</h3>
+                        <ul>${location.serviceTimes.map(time => `<li>${time}</li>`).join('')}</ul>
+                    </div>
+                ` : ''}
+                ${location.link ? `<a href="${location.link}" class="map-link" target="_blank" rel="noopener">
+                    <span class="map-icon">📍</span> View on Map
+                </a>` : ''}
+            </div>
         </div>
     `).join('');
 }
+
+function createSectionHTML(section) {
+    if (!section) return '';
+    
+    let contentHTML = section.content || '';
+    
+    // Handle contact lists
+    if (section.contacts && Array.isArray(section.contacts)) {
+        contentHTML += '<ul class="contact-list">';
+        section.contacts.forEach(contact => {
+            contentHTML += `<li><strong>${contact.type}:</strong> ${contact.value}</li>`;
+        });
+        contentHTML += '</ul>';
+    }
+    
+    // Add location-specific fields
+    if (section.address) {
+        contentHTML += `<p class="location-address">📍 ${section.address}</p>`;
+    }
+    
+    if (section.phone) {
+        contentHTML += `<p class="location-phone">📞 ${section.phone}</p>`;
+    }
+    
+    // Handle service times
+    if (section.serviceTimes && Array.isArray(section.serviceTimes)) {
+        contentHTML += '<div class="service-times"><h3>Service Times:</h3><ul>';
+        section.serviceTimes.forEach(time => {
+            contentHTML += `<li>${time}</li>`;
+        });
+        contentHTML += '</ul></div>';
+    }
+    
+    // Only show map link for location sections
+    if (section.link && window.location.pathname === '/locations') {
+        contentHTML += `
+            <div class="map-link-container">
+                <a href="${section.link}" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="map-link">
+                   <span class="map-icon">📍</span> View on Map
+                </a>
+            </div>
+        `;
+    }
+    
+    return `
+        <div class="content-card">
+            <h2>${section.title || 'Section'}</h2>
+            <div class="section-content">
+                ${contentHTML}
+                ${section.name ? `<p class="location-name">${section.name}</p>` : ''}
+            </div>
+        </div>
+    `;
+}
+
+// Handle browser back/forward
+window.addEventListener('popstate', async () => {
+    await loadFullLayout(window.location.pathname);
+});
