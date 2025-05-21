@@ -56,6 +56,20 @@
                     ]
                 }
             ]
+            "sections":[
+                {
+                    "title": "Honor God, Make Disciples",
+                    "content": "We follow Jesus and help others follow Him. Our starting point, goal, and motive is the honor of God. We desire to honor God in every area of life. We make disciples by engaging culture and community, establishing biblical foundations, equipping believers to minister, and empowering disciples to make disciples.",
+                    "image": "assets/img/englobe.png",
+                    "buttons": [
+                        {
+                            "text": "Contact Us",
+                            "link": "/contact",
+                            "external": false
+                        }
+                    ]
+                }
+            ]
         },
         "about": {
             "sections": [
