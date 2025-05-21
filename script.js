@@ -71,6 +71,8 @@ async function loadFullLayout(path) {
             console.error('Content area element not found');
             return;
         }
+        // At start of loadFullLayout
+        contentArea.innerHTML = '<div class="loading-spinner"></div>';
 
         // Store locations for search
         allLocations = content.pages?.locations?.sections || [];
@@ -94,6 +96,9 @@ if (pagePath === 'home') {
                 <div class="hero-content">
                     <h1>${content.pages.home.hero.heading || content.churchName}</h1>
                     <p>${content.pages.home.hero.tagline || content.tagline}</p>
+                    // In hero section HTML
+                    url('${content.pages.home.hero.image || 'default-hero.jpg'})"
+
                 </div>
             </section>
         `;
