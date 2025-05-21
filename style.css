@@ -491,6 +491,7 @@ main {
     .content-area {
         max-width: 1200px;
         padding: 2rem;
+        grid-template-columns: 1fr !important;
     }
 
     .content-card {
