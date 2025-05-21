@@ -36,7 +36,8 @@
 
     "pages": {
         "home": {
-            "title": "Welcome to Every Nation Indonesia",
+            
+        "home": {
             "hero": {
                 "image": "/assets/img/30th_CollageBackground.jpg",
                 "title": "Why we exist",
@@ -49,7 +50,7 @@
                 "text": "Welcome to Every Nation Indonesia",
                 "buttonText": "Contact Us",
                 "buttonLink": "/#contact"
-    ,
+    },
             
             "sections": [{
                     "title": "Why we exist"
