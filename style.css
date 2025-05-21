@@ -23,7 +23,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     margin: 0;
-    padding-bottom: 60px; /* Space for footer */
+    padding-bottom: 80px; /* Increased to ensure content doesn't hide behind footer */
     min-height: 100vh;
     background-color: #f5f7fa;
     display: flex;
@@ -203,6 +203,7 @@ main {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 100; /* Higher than search container */
 }
 
 .social-links {
@@ -281,16 +282,16 @@ main {
 /* Locations Page Styles */
 .search-container {
     position: sticky;
-    top: -1px;
-    z-index: 100;
+    top: 58px; /* Adjusted to account for nav height */
+    z-index: 90; /* Lower than footer */
     background: white;
     transition: all 0.3s ease;
     padding: 1rem 0;
+    margin-bottom: 2rem;
 }
 
 .search-container.scrolled {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    top: 0;
 }
 
 .search-input {
@@ -309,6 +310,7 @@ main {
 
 #searchResults {
     margin-top: 2rem;
+    padding-bottom: 80px; /* Give space for footer */
 }
 
 .locations-list {
@@ -417,6 +419,50 @@ main {
 .contact-list .whatsapp-link {
     margin-left: 1rem;
     font-size: 0.9em;
+}
+
+/* Link styling */
+.content-link {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    background-color: rgba(26, 77, 143, 0.1);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.content-link:hover {
+    background-color: rgba(26, 77, 143, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Button styles for content links */
+.button-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.button-link:hover {
+    background-color: #0d3b75;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Button container for multiple buttons */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
 }
 
 /* Animation */

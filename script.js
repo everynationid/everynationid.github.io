@@ -255,7 +255,12 @@ function renderLocations(locations) {
             <h3>${location.name}</h3>
             <div class="location-details">
                 ${location.address ? `<p class="address">📍 ${location.address}</p>` : ''}
-                ${location.phone ? `<p class="phone">📞 <a href="tel:${location.phone}">${location.phone}</a></p>` : ''}
+                ${location.phone ? `
+                <div class="phone-wrapper">
+                    <p class="phone">📞 <a href="tel:${location.phone}" class="tel-link">${location.phone}</a>
+                    <a href="https://wa.me/${location.phone.replace(/[^0-9]/g, '')}" class="whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
+                    </p>
+                </div>` : ''}
                 ${location.serviceTimes && location.serviceTimes.length > 0 ? `
                     <div class="service-times">
                         <h3>Service Times:</h3>
@@ -275,13 +280,49 @@ function createSectionHTML(section) {
     
     let contentHTML = section.content || '';
     
-    // Handle contact lists
+    // Add link if exists in the section
+    if (section.link && section.linkText) {
+        contentHTML += `
+            <a href="${section.link}" class="content-link" target="_blank" rel="noopener noreferrer">
+                ${section.linkText}
+            </a>
+        `;
+    }
+    
+    // Handle contact lists with links
     if (section.contacts && Array.isArray(section.contacts)) {
         contentHTML += '<ul class="contact-list">';
         section.contacts.forEach(contact => {
-            contentHTML += `<li><strong>${contact.type}:</strong> ${contact.value}</li>`;
+            if (contact.type === 'whatsapp' && contact.link) {
+                contentHTML += `
+                    <li>
+                        <strong>${contact.type}:</strong> ${contact.value}
+                        <a href="${contact.link}" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
+                            Chat on WhatsApp
+                        </a>
+                    </li>`;
+            } else if (contact.type === 'email') {
+                contentHTML += `<li><strong>${contact.type}:</strong> <a href="mailto:${contact.value}">${contact.value}</a></li>`;
+            } else if (contact.type === 'phone') {
+                contentHTML += `<li><strong>${contact.type}:</strong> <a href="tel:${contact.value}">${contact.value}</a></li>`;
+            } else {
+                contentHTML += `<li><strong>${contact.type}:</strong> ${contact.value}</li>`;
+            }
         });
         contentHTML += '</ul>';
+    }
+    
+    // Handle buttons - new feature
+    if (section.buttons && Array.isArray(section.buttons)) {
+        contentHTML += '<div class="button-container">';
+        section.buttons.forEach(button => {
+            contentHTML += `
+                <a href="${button.link}" class="button-link" ${button.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                    ${button.text}
+                </a>
+            `;
+        });
+        contentHTML += '</div>';
     }
     
     // Add location-specific fields
@@ -290,7 +331,7 @@ function createSectionHTML(section) {
     }
     
     if (section.phone) {
-        contentHTML += `<p class="location-phone">📞 ${section.phone}</p>`;
+        contentHTML += `<p class="location-phone">📞 <a href="tel:${section.phone}">${section.phone}</a></p>`;
     }
     
     // Handle service times
@@ -303,7 +344,7 @@ function createSectionHTML(section) {
     }
     
     // Only show map link for location sections
-    if (section.link && window.location.pathname === '/locations') {
+    if (section.link) {
         contentHTML += `
             <div class="map-link-container">
                 <a href="${section.link}" 

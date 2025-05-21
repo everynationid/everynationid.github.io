@@ -41,7 +41,21 @@
                 {
                     "title": "Why we exist",
                     "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
-                    "image": "assets/img/englobe.png"
+                    "image": "assets/img/englobe.png",
+                    "link": "https://everynation.org",
+                    "linkText": "Learn more about Every Nation",
+                    "buttons": [
+                        {
+                            "text": "Visit Global Website",
+                            "link": "https://everynation.org",
+                            "external": true
+                        },
+                        {
+                            "text": "Find a Church Near You",
+                            "link": "/locations",
+                            "external": false
+                        }
+                    ]
                 }
             ]
         },
@@ -50,13 +64,22 @@
                 {
                     "title": "Every Nation Campus",
                     "content": "We are committed to reaching the next generation of leaders on campuses across Indonesia.",
-                    "image": "assets/img/englobe.png"
+                    "image": "assets/img/englobe.png",
+                    "link": "https://everynation.org/campus",
+                    "linkText": "Learn more about our campus ministry"
                 },
                 {
                     "title": "Our Mission",
                     "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
                     "link": "https://everynation.org",
-                    "linkText": "Learn more"
+                    "linkText": "Learn more",
+                    "buttons": [
+                        {
+                            "text": "Join a Service",
+                            "link": "/locations",
+                            "external": false
+                        }
+                    ]
                 }
             ]
         },
@@ -72,6 +95,13 @@
                             "type": "whatsapp",
                             "value": "+62881025094708",
                             "link": "https://wa.me/62881025094708"
+                        }
+                    ],
+                    "buttons": [
+                        {
+                            "text": "Join Us This Sunday",
+                            "link": "/locations",
+                            "external": false
                         }
                     ]
                 }
