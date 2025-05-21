@@ -54,9 +54,7 @@
                             "external": false
                         }
                     ]
-                }
-            ]
-            "sections":[
+                },
                 {
                     "title": "Honor God, Make Disciples",
                     "content": "We follow Jesus and help others follow Him. Our starting point, goal, and motive is the honor of God. We desire to honor God in every area of life. We make disciples by engaging culture and community, establishing biblical foundations, equipping believers to minister, and empowering disciples to make disciples.",
@@ -68,7 +66,24 @@
                             "external": false
                         }
                     ]
+                },
+                {
+                    "title": "Our Core Values",
+                    "content": "We are a family of churches that values the Lordship of Jesus Christ, Discipleship, Evangelism, Leadership Development, and Family.",
+                    "image": "assets/img/englobe.png",
+                    "buttons": [
+                        {
+                            "text": "Learn more about our core values",
+                            "link": "/about",
+                            "external": false
+                        }
+                    ]
+                },
+                {
+                    "title": "Change the Campus, Change the World",
+                    "content": "We are committed to reaching the next generation of leaders on campuses across Indonesia. We believe that God called us to reach and to raise the future leaders of our nation through our campus ministry known as Every Nation Campus (ENC). We believe in students because we know that they are students today but they are leaders tomorrow. We believe that if we can change the campus, we can change the world."
                 }
+            
             ]
         },
         "about": {
