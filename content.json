@@ -33,8 +33,8 @@
             "hero": {
                 "image": "/assets/img/30th_CollageBackground.jpg",
                 "title": "Why we exist",
-                "heading": "Honor God, Make Disciples in Every Nation",
-                "tagline": "Honor God, Make Disciples",
+                "heading": "Honor God, Make Disciples",
+                "tagline": "In Every Nation",
                 "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation."
             },
             "sections": [
@@ -42,11 +42,9 @@
                     "title": "Why we exist",
                     "content": "We exist to honor God by establishing Christ-centered, Spirit-empowered, socially responsible churches and campus ministries in every nation.",
                     "image": "assets/img/englobe.png",
-                    "link": "https://everynation.org",
-                    "linkText": "Learn more about Every Nation",
                     "buttons": [
                         {
-                            "text": "Visit Global Website",
+                            "text": "Learn more about Every Nation",
                             "link": "https://everynation.org",
                             "external": true
                         },
