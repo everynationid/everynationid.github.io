@@ -371,6 +371,10 @@ function createSectionHTML(section) {
 // Handle browser back/forward
 window.addEventListener('popstate', async () => {
     await loadFullLayout(window.location.pathname);
+<<<<<<< HEAD
 });
 
 
+=======
+});
+>>>>>>> parent of ddefb7b (updates on links and layout)
