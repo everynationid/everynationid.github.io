@@ -11,14 +11,18 @@
     ],
     "tagline": "Honor God, Make Disciples",
     "header": {
-        "logo": "path/to/logo.png",
-        "title": "Every Nation Indonesia",
-        "subtitle": "A Family of Churches"
+        "logo": "/assets/img/every-nation-logo.png",
+        "logoAlt": "Every Nation Indonesia Logo",
+        "logoWidth": 180,
+        "logoHeight": 60,
+        "title": "Every Nation Indonesia", 
+        "subtitle": "A Family of Churches",
+        "sticky": true
     },
     "menu": [
         { "title": "Home", "link": "/" },
         { "title": "About", "link": "/about" },
-        { "title": "Locations", "link": "/locations" },
+        { "title": "Locations", "link": "/locations", "activeOnScroll": true },
         { "title": "Contact Us", "link": "/contact" }
     ],
     "footer": {
@@ -110,6 +114,10 @@
         "locations": {
             "title": "Our locations",
             "content": "Find a church near you.",
+            "searchBar": {
+                "placeholder": "Search by city or area",
+                "sticky": true
+            },
             "sections": [
                 {
                     "name": "Every Nation Medan",
