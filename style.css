@@ -43,6 +43,7 @@ a:hover {
 main {
     flex: 1;
     padding: 1rem;
+    scroll-margin-top: auto; /* For smooth scrolling */
 }
 
 /* Header */
