@@ -22,8 +22,8 @@
         { "title": "Contact Us", "link": "/contact" }
     ],
     "footer": {
-        "text": "Yayasan MSI Indonesia",
-        "text": "Charity ID: AHU-0013293.AH.01.04",
+        "text1": "Yayasan MSI Indonesia",
+        "text2": "Charity ID: AHU-0013293.AH.01.04",
         "text": "© 2025 Every Nation Indonesia. All rights reserved.",
         "socialMedia": [
             { "platform": "Facebook", "link": "https://facebook.com/everynationindonesia" },
@@ -91,7 +91,7 @@
                 },
                 {
                     "title": "In Every Nation",
-                    "content": "We believe that God called us not just to gather people for a weekly worship service but to prepare and send missionaries across the global believing that Uganda can move from a mission field to a mission force. We pray, we give and We go to the ends for the earth."
+                    "content": "We believe that God called us not just to gather people for a weekly worship service but to prepare and send missionaries across the global believing that a mission field can become a mission force. We pray, we give and We go to the ends for the earth."
                 }           
             ]
         },
