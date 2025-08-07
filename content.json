@@ -22,7 +22,7 @@
         { "title": "Contact Us", "link": "/contact" }
     ],
     "footer": { 
-        "text": "<span style='font-size: smaller;'>Yayasan MSI Indonesia | Charity ID: AHU-0013293.AH.01.04 </span><br> © 2025 Every Nation Indonesia. All rights reserved.",
+        "text": "<span style='font-size: 0.6em; font-weight: 100;'>Yayasan MSI Indonesia | Charity ID: AHU-0013293.AH.01.04 </span><br> © 2025 Every Nation Indonesia. All rights reserved.",
         "socialMedia": [
             { "platform": "Facebook", "link": "https://facebook.com/everynationindonesia" },
             { "platform": "Instagram", "link": "https://instagram.com/everynationid" }
